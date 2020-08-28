@@ -1,3 +1,12 @@
+function isTypeInTypes(type) {
+  const types = [
+    'engineer',
+    'manager',
+    'salesman',
+  ];
+  return types.includes(type);
+}
+
 class Employee {
   constructor(name, type) {
     this.validateType(type);
@@ -6,11 +15,7 @@ class Employee {
   }
 
   validateType(type) {
-    if (![
-      'engineer',
-      'manager',
-      'salesman',
-    ].includes(type)) {
+    if (!isTypeInTypes(type)) {
       throw new Error(`Employee cannot be of type ${type}`);
     }
   }
